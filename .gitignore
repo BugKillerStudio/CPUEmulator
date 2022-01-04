@@ -4,3 +4,6 @@
 
 /core/.vs/core/v16
 /.vs
+/gui/CPUEmulator/release
+/gui/CPUEmulator/debug
+/gui/CPUEmulator/.gitignore
