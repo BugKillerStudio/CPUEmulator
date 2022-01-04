@@ -7,3 +7,5 @@
 /gui/CPUEmulator/release
 /gui/CPUEmulator/debug
 /gui/CPUEmulator/.gitignore
+/core/core_unicorn/Debug
+/core/Debug

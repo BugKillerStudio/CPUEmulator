@@ -1,0 +1,7 @@
+LIBRARY "core_unicorn.dll"
+
+EXPORTS
+;			';' 表示注释
+;
+; 格式:		函数名 @序号
+;例:		a	   @1
