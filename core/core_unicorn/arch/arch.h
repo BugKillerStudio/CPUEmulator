@@ -1,18 +1,24 @@
 #ifndef CORE_UNICORN_ARCH_H
+#define CORE_UNICORN_ARCH_H
 
-typedef enum core_unicorn_arch
+#include "core.h"
+
+typedef enum _CORE_UNICORN_ARCH
 {
-	CORE_UNICORN_ARCH_X86_32 = 1,
-	CORE_UNICORN_ARCH_X86_64,
+	CORE_UNICORN_ARCH_X86 = 0,
 
-	CORE_UNICORN_ARCH_X64_32,
-	CORE_UNICORN_ARCH_X64_64,
+}CORE_UNICORN_ARCH;
 
-	// CORE_UNICORN_ARCH_ARM_32,
-	// CORE_UNICORN_ARCH_ARM_64
-};
+typedef enum _CORE_UNICORN_MODE
+{
+	// x86 / x64
+	CORE_UNICORN_MODE_16 = 1 << 1,          // 16-bit ģʽ
+	CORE_UNICORN_MODE_32 = 1 << 2,          // 32-bit ģʽ
+	CORE_UNICORN_MODE_64 = 1 << 3,          // 64-bit ģʽ
+
+}CORE_UNICORN_MODE;
 
 
-unsigned int arch_init(PCORE_UNICORN_ENGINE pEngine, unsigned int arch);
+unsigned int arch_init(PCORE_UNICORN_ENGINE pEngine, CORE_UNICORN_ARCH arch);
 
 #endif // !CORE_UNICORN_ARCH_H

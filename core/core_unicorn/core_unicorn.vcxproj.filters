@@ -22,6 +22,24 @@
     <Filter Include="头文件\arch">
       <UniqueIdentifier>{ca81b883-69ed-42be-bd5d-cfbce8340c83}</UniqueIdentifier>
     </Filter>
+    <Filter Include="头文件\mem">
+      <UniqueIdentifier>{3470902f-c146-412e-9803-b7dd4eff0b4a}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="源文件\mem">
+      <UniqueIdentifier>{ac955ff9-1e4e-428c-8421-82fdb94d8709}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="源文件\public">
+      <UniqueIdentifier>{0fddf376-750d-4eb5-a3a2-c3bf93e96e6c}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="头文件\public">
+      <UniqueIdentifier>{ea5e5e55-34c7-4d62-8552-f3e16df4015f}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="源文件\reg">
+      <UniqueIdentifier>{ded5914d-0751-4055-b25e-2d9f05633f2d}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="头文件\reg">
+      <UniqueIdentifier>{3d166da2-3b15-43ba-9098-a545ddfa296c}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <Library Include="res\unicorn_static.lib">
@@ -59,16 +77,34 @@
     <ClInclude Include="arch\arch.h">
       <Filter>头文件\arch</Filter>
     </ClInclude>
+    <ClInclude Include="mem\mem.h">
+      <Filter>头文件\mem</Filter>
+    </ClInclude>
+    <ClInclude Include="public\public.h">
+      <Filter>头文件\public</Filter>
+    </ClInclude>
+    <ClInclude Include="reg\reg.h">
+      <Filter>头文件\reg</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
-    <ClCompile Include="export.cpp">
+    <ClCompile Include="export.c">
       <Filter>源文件</Filter>
     </ClCompile>
-    <ClCompile Include="arch\arch.cpp">
+    <ClCompile Include="arch\arch.c">
       <Filter>源文件\arch</Filter>
     </ClCompile>
-    <ClCompile Include="core.cpp">
+    <ClCompile Include="core.c">
       <Filter>源文件</Filter>
+    </ClCompile>
+    <ClCompile Include="mem\mem.c">
+      <Filter>源文件\mem</Filter>
+    </ClCompile>
+    <ClCompile Include="public\public.c">
+      <Filter>源文件\public</Filter>
+    </ClCompile>
+    <ClCompile Include="reg\reg.c">
+      <Filter>源文件\reg</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
