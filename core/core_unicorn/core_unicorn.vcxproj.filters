@@ -16,6 +16,12 @@
     <Filter Include="头文件\unicorn">
       <UniqueIdentifier>{a712e3dd-cff1-41f6-892f-fae801b15450}</UniqueIdentifier>
     </Filter>
+    <Filter Include="源文件\arch">
+      <UniqueIdentifier>{0500f87a-a112-429e-bd53-17eec49eb82d}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="头文件\arch">
+      <UniqueIdentifier>{ca81b883-69ed-42be-bd5d-cfbce8340c83}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <Library Include="res\unicorn_static.lib">
@@ -47,9 +53,21 @@
     <ClInclude Include="inc\unicorn\x86.h">
       <Filter>头文件\unicorn</Filter>
     </ClInclude>
+    <ClInclude Include="core.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="arch\arch.h">
+      <Filter>头文件\arch</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="export.cpp">
+      <Filter>源文件</Filter>
+    </ClCompile>
+    <ClCompile Include="arch\arch.cpp">
+      <Filter>源文件\arch</Filter>
+    </ClCompile>
+    <ClCompile Include="core.cpp">
       <Filter>源文件</Filter>
     </ClCompile>
   </ItemGroup>

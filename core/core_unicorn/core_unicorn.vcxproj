@@ -73,6 +73,7 @@
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
     <LinkIncremental>true</LinkIncremental>
     <LibraryPath>$(LibraryPath)</LibraryPath>
+    <IncludePath>H:\Reverse\CPUEmulator\core\core_unicorn;H:\Reverse\CPUEmulator\core\core_unicorn\inc;$(IncludePath)</IncludePath>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
     <LinkIncremental>false</LinkIncremental>
@@ -147,6 +148,8 @@
     <Library Include="res\unicorn_static.lib" />
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="arch\arch.h" />
+    <ClInclude Include="core.h" />
     <ClInclude Include="inc\unicorn\arm.h" />
     <ClInclude Include="inc\unicorn\arm64.h" />
     <ClInclude Include="inc\unicorn\m68k.h" />
@@ -157,6 +160,8 @@
     <ClInclude Include="inc\unicorn\x86.h" />
   </ItemGroup>
   <ItemGroup>
+    <ClCompile Include="arch\arch.cpp" />
+    <ClCompile Include="core.cpp" />
     <ClCompile Include="export.cpp" />
   </ItemGroup>
   <ItemGroup>
