@@ -158,11 +158,17 @@
     <ClInclude Include="inc\unicorn\sparc.h" />
     <ClInclude Include="inc\unicorn\unicorn.h" />
     <ClInclude Include="inc\unicorn\x86.h" />
+    <ClInclude Include="mem\mem.h" />
+    <ClInclude Include="public\public.h" />
+    <ClInclude Include="reg\reg.h" />
   </ItemGroup>
   <ItemGroup>
-    <ClCompile Include="arch\arch.cpp" />
-    <ClCompile Include="core.cpp" />
-    <ClCompile Include="export.cpp" />
+    <ClCompile Include="arch\arch.c" />
+    <ClCompile Include="core.c" />
+    <ClCompile Include="export.c" />
+    <ClCompile Include="mem\mem.c" />
+    <ClCompile Include="public\public.c" />
+    <ClCompile Include="reg\reg.c" />
   </ItemGroup>
   <ItemGroup>
     <None Include="export.def" />
