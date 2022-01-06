@@ -5,15 +5,14 @@
 
 typedef struct _MEM_LIST
 {
-    LIST_ENTRY listNode;
+	LIST_ENTRY listNode;
 
-    unsigned int memStart;
-    unsigned int memSize;
+	unsigned int memStart;
+	unsigned int memSize;
 
-    unsigned int memLabel;
+	unsigned int memLabel;
 
 }MEM_LIST, * PMEM_LIST;
 
-// unsigned int mem_init(PCORE_UNICORN_ENGINE pEngine);
 
 #endif // !CORE_UNICORN_MEM_H
