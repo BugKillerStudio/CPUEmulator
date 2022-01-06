@@ -2,6 +2,9 @@
 <ui version="4.0">
  <class>Editor</class>
  <widget class="QWidget" name="Editor">
+  <property name="enabled">
+   <bool>true</bool>
+  </property>
   <property name="geometry">
    <rect>
     <x>0</x>
