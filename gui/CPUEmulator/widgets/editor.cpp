@@ -4,7 +4,7 @@
 Editor::Editor(QWidget *parent) :
     QWidget(parent),
     ui(new Ui::Editor)
-{
+{   
     ui->setupUi(this);
 }
 
