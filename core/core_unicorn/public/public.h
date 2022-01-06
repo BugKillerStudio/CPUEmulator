@@ -5,8 +5,8 @@
 
 typedef struct _LIST_ENTRY
 {
-    struct _LIST_ENTRY* Flink;
-    struct _LIST_ENTRY* Blink;
+	struct _LIST_ENTRY* Flink;
+	struct _LIST_ENTRY* Blink;
 
 }LIST_ENTRY, * PLIST_ENTRY;
 
