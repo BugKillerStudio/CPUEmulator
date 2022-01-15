@@ -4,5 +4,6 @@
 #include "core.h"
 
 
+unsigned int reg_init(PCORE_UNICORN_ENGINE pEngine);
 
 #endif // !CORE_UNICORN_REG_H

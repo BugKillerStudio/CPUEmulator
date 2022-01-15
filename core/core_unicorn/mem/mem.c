@@ -11,16 +11,16 @@ void mem_list_init(PCORE_UNICORN_ENGINE pEngine, PMEM_LIST memList)
 
     memList->listNode = listHead;
 
-    pEngine->memList->listNode = listHead;
+    pEngine->memList = memList;
 
     return;
 }
 
 unsigned int mem_init(PCORE_UNICORN_ENGINE pEngine)
 {
-    MEM_LIST memList = { 0 };
+    PMEM_LIST memList = malloc(sizeof(MEM_LIST));
 
-    mem_list_init(pEngine, &memList);
+    mem_list_init(pEngine, memList);
 
     return CORE_UNICORN_ERR_OK;
 }

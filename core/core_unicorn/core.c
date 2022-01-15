@@ -2,15 +2,33 @@
 
 #include "arch/arch.h"
 #include "mem/mem.h"
+#include "reg/reg.h"
 
-unsigned int core_unicorn_init(PCORE_UNICORN_ENGINE pEngine, CORE_UNICORN_CONFIG config)
+
+/*
+* ====================GLOBAL VALUE====================
+*/
+
+/*
+* ====================GLOBAL VALUE====================
+*/
+
+
+unsigned int core_unicorn_init(PVOID* pEngine, CORE_UNICORN_CONFIG config)
 {
-    CORE_UNICORN_ENGINE core = { 0 };
-    MEM_LIST memList = { 0 };
+    PCORE_UNICORN_ENGINE pCore = malloc(sizeof(CORE_UNICORN_ENGINE));
 
-    arch_init(&core, config.arch);
-    mem_init(&core);
+    if (pCore == NULL)
+        return CORE_UNICORN_ERR_INTERNAL;
 
+    arch_init(pCore, config.arch, config.mode);
+    mem_init(pCore);
+    reg_init(pCore);
+
+    uc_open(pCore->arch, pCore->mode, &pCore->ucEngine);
+
+    *pEngine = &pCore;
+    
     return CORE_UNICORN_ERR_OK;
 }
 

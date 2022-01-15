@@ -2,6 +2,8 @@
 
 #include "core.h"
 
+
+
 void* reg_init_x86(CORE_UNICORN_MODE mode)
 {
     switch (mode)
@@ -13,7 +15,6 @@ void* reg_init_x86(CORE_UNICORN_MODE mode)
         return NULL;
     }
 }
-
 
 unsigned int reg_init(PCORE_UNICORN_ENGINE pEngine)
 {
