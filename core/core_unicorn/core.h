@@ -5,8 +5,8 @@
 
 #include <stdlib.h>
 
-// Public structs
 
+// #define CORE_EXTERN_FUNC        extern "C"
 
 
 // Arch structs
@@ -33,12 +33,23 @@ typedef struct _MEM_LIST
 {
     LIST_ENTRY listNode;
 
-    unsigned int memStart;
-    unsigned int memSize;
+    UINT memStart;
+    UINT memSize;
 
-    unsigned int memLabel;
+    PVOID memData;
+
+    UINT index;
 
 }MEM_LIST, * PMEM_LIST;
+
+typedef struct _MEM_NODE_CONFIG
+{
+    UINT memStart;
+    UINT memSize;
+    UINT index;
+    PVOID pMemData;
+
+}MEM_NODE_CONFIG;
 
 
 
@@ -46,16 +57,16 @@ typedef struct _MEM_LIST
 
 typedef struct _REG_LIST_X86_32
 {
-    unsigned int eax;
-    unsigned int ecx;
-    unsigned int edx;
-    unsigned int ebx;
-    unsigned int esp;
-    unsigned int ebp;
-    unsigned int esi;
-    unsigned int edi;
-    unsigned int eip;
-    unsigned int eflags;
+    UINT eax;
+    UINT ecx;
+    UINT edx;
+    UINT ebx;
+    UINT esp;
+    UINT ebp;
+    UINT esi;
+    UINT edi;
+    UINT eip;
+    UINT eflags;
 
 }REG_LIST_X86_32;
 
@@ -70,6 +81,7 @@ typedef enum _CORE_UNICORN_ERR
     CORE_UNICORN_ERR_INTERNAL = -1,
     CORE_UNICORN_ERR_OK = 0,
     CORE_UNICORN_ERR_NOMEM,					// Out of Memory
+    CORE_UNICORN_ERR_ARG,                   // Arg is ERROR
 
 }CORE_UNICORN_ERR;
 
@@ -77,8 +89,8 @@ typedef struct _CORE_UNICORN_ENGINE
 {
     CORE_UNICORN_ARCH arch;
     CORE_UNICORN_MODE mode;
-    PMEM_LIST memList;
-    PVOID regList;
+    LIST_ENTRY memList;
+    PVOID regTable;
     uc_engine* ucEngine;
 
 }CORE_UNICORN_ENGINE, * PCORE_UNICORN_ENGINE;
@@ -92,6 +104,7 @@ typedef struct _CORE_UNICORN_CONFIG
 
 
 
-unsigned int core_unicorn_init(PVOID* pEngine, CORE_UNICORN_CONFIG config);
+UINT core_unicorn_init(PCORE_UNICORN_ENGINE* pEngine, CORE_UNICORN_CONFIG config);
+UINT core_unicorn_memWrite(PCORE_UNICORN_ENGINE pEngine);
 
 #endif // !CORE_UNICORN_CORE_H

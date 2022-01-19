@@ -9,9 +9,9 @@ void InitializeListHead(PLIST_ENTRY listHead)
 
 int InsertHeadList(PLIST_ENTRY listHead, PLIST_ENTRY node)
 {
-    PLIST_ENTRY nextNode = { 0 };
+    PLIST_ENTRY nextNode = NULL;
 
-    if (node->Blink != listHead)
+    if (listHead->Blink != listHead)
     {
         // Bad LIST_ENTRY struct
         return -1;
@@ -28,9 +28,9 @@ int InsertHeadList(PLIST_ENTRY listHead, PLIST_ENTRY node)
 
 int InsertTailList(PLIST_ENTRY listHead, PLIST_ENTRY node)
 {
-    PLIST_ENTRY prevNode = { 0 };
+    PLIST_ENTRY prevNode = NULL;
 
-    if (node->Flink != listHead)
+    if (listHead->Flink != listHead)
     {
         // Bad LIST_ENTRY struct
         return -1;
@@ -42,6 +42,25 @@ int InsertTailList(PLIST_ENTRY listHead, PLIST_ENTRY node)
     prevNode->Flink = node;
     listHead->Blink = node;
 
+    return 0;
+}
+
+int RemoveEntryList(PLIST_ENTRY node)
+{
+    PLIST_ENTRY PrevEntry = NULL;
+    PLIST_ENTRY NextEntry = NULL;
+
+    NextEntry = node->Flink;
+    PrevEntry = node->Blink;
+    if ((NextEntry->Blink != node) || (PrevEntry->Flink != node))
+    {
+        // Bad LIST_ENTRY struct
+        return -1;
+    }
+
+    PrevEntry->Flink = NextEntry;
+    NextEntry->Blink = PrevEntry;
+    
     return 0;
 }
 

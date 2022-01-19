@@ -6,4 +6,6 @@ EXPORTS
 ; 格式:		函数名 @序号
 ;例:		a	   @1
 
-core_unicorn_init @1
+core_unicorn_init       @1
+core_unicorn_memAdd     @2
+core_unicorn_memRemove  @3
