@@ -17,37 +17,18 @@ DEFINES += QT_DEPRECATED_WARNINGS
 
 SOURCES += \
     main.cpp \
-    model/configmodel.cpp \
-    tools/parsing.cpp \
-    widgets/components/cpugroupwidget.cpp \
-    widgets/components/memgroupwidget.cpp \
-    widgets/configer.cpp \
     widgets/editor.cpp \
     widgets/mainwindow.cpp
 
 HEADERS += \
-    model/configmodel.h \
-    tools/HeadStructs.h \
-    tools/parsing.h \
-    widgets/components/cpugroupwidget.h \
-    widgets/components/memgroupwidget.h \
-    widgets/configer.h \
     widgets/editor.h \
     widgets/mainwindow.h
 
 FORMS += \
-    widgets/components/cpugroupwidget.ui \
-    widgets/components/memgroupwidget.ui \
-    widgets/configer.ui \
     widgets/editor.ui \
     widgets/mainwindow.ui
 
-
-
-unix|win32: LIBS += -L$$PWD/bin/ -lcapstone
-
-INCLUDEPATH += $$PWD/tools/capstone
-DEPENDPATH += $$PWD/tools/capstone
-
-win32:!win32-g++: PRE_TARGETDEPS += $$PWD/bin/capstone.dll
-#else:unix|win32-g++: PRE_TARGETDEPS += $$PWD/bin/libcapstone.a
+# Default rules for deployment.
+qnx: target.path = /tmp/$${TARGET}/bin
+else: unix:!android: target.path = /opt/$${TARGET}/bin
+!isEmpty(target.path): INSTALLS += target

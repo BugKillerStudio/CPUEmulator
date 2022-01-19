@@ -3,16 +3,15 @@
 
 #include "core.h"
 
-typedef struct _MEM_LIST
-{
-	LIST_ENTRY listNode;
 
-	unsigned int memStart;
-	unsigned int memSize;
+#define MEM_LIST_SEARCH_ERR         100
+#define MEM_LIST_INDEX_NOT_FOUND    101
+#define MEM_LIST_UNMAP_ERR          102
 
-	unsigned int memLabel;
 
-}MEM_LIST, * PMEM_LIST;
-
+UINT mem_init(PCORE_UNICORN_ENGINE pEngine);
+UINT mem_list_add(PCORE_UNICORN_ENGINE pEngine, MEM_NODE_CONFIG memConfig);
+UINT mem_list_remove(PCORE_UNICORN_ENGINE pEngine, UINT index);
+UINT mem_write(PCORE_UNICORN_ENGINE pEngine);
 
 #endif // !CORE_UNICORN_MEM_H

@@ -9,3 +9,6 @@
 /gui/CPUEmulator/.gitignore
 /core/core_unicorn/Debug
 /core/Debug
+/core/core_core/Debug
+/core/core_demo/Debug
+/gui/build-CPUEmulator-Desktop_Qt_5_12_9_MinGW_32_bit-Debug

@@ -3,20 +3,8 @@
 
 #include "core.h"
 
-typedef enum _CORE_UNICORN_ARCH
-{
-	CORE_UNICORN_ARCH_X86,
-
-}CORE_UNICORN_ARCH;
-
-typedef enum _CORE_UNICORN_MODE
-{
-	CORE_UNICORN_MODE_16 = 1 << 1,
-	CORE_UNICORN_MODE_32 = 1 << 2,
-	CORE_UNICORN_MODE_64 = 1 << 3,
-}CORE_UNICORN_MODE;
 
 
-unsigned int arch_init(PCORE_UNICORN_ENGINE pEngine, CORE_UNICORN_ARCH arch);
+unsigned int arch_init(PCORE_UNICORN_ENGINE pEngine, CORE_UNICORN_ARCH arch, CORE_UNICORN_MODE mode);
 
 #endif // !CORE_UNICORN_ARCH_H
