@@ -6,7 +6,8 @@ int main(int argc, char *argv[])
     QApplication a(argc, argv);
     MainWindow w;
     w.show();
-    Parsing p;
-    p.testPrint();
+    QString str("D:/111.exe");
+    Parsing p(str);
+    p.getAssemblyCode();
     return a.exec();
 }
