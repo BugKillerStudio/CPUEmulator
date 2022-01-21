@@ -3,7 +3,7 @@
 
 typedef enum _CORE_UNICORN_ARCH
 {
-    CORE_UNICORN_ARCH_X86,
+    CORE_UNICORN_ARCH_X86 = 4,
 
 }CORE_UNICORN_ARCH;
 
@@ -33,8 +33,10 @@ typedef struct _MEM_NODE_CONFIG
 
 typedef struct CORE_UNICORN_ENGINE *PCORE_UNICORN_ENGINE;
 
-typedef unsigned int (*core_unicorn_init)(PCORE_UNICORN_ENGINE* pEngine, CORE_UNICORN_CONFIG config);
+typedef UINT(*core_unicorn_init)(PCORE_UNICORN_ENGINE* pEngine, CORE_UNICORN_CONFIG config);
 typedef UINT(*core_unicorn_memAdd)(PCORE_UNICORN_ENGINE pEngine, MEM_NODE_CONFIG memConfig);
+typedef UINT(*core_unicorn_regRead)(PCORE_UNICORN_ENGINE pEngine, UINT regType, PUINT pRegValue);
+typedef UINT(*core_unicorn_regWrite)(PCORE_UNICORN_ENGINE pEngine, UINT regType, UINT regValue);
 
 int main()
 {
@@ -57,12 +59,22 @@ int main()
     if (!hDll)
         return -1;
 
-    core_unicorn_init testFun = (core_unicorn_init)GetProcAddress(hDll, "core_unicorn_init");
+    core_unicorn_init coreInit = (core_unicorn_init)GetProcAddress(hDll, "core_unicorn_init");
     core_unicorn_memAdd memListAdd = (core_unicorn_memAdd)GetProcAddress(hDll, "core_unicorn_memAdd");
+    core_unicorn_regRead regRead = (core_unicorn_regRead)GetProcAddress(hDll, "core_unicorn_regRead");
+    core_unicorn_regWrite regWrite = (core_unicorn_regWrite)GetProcAddress(hDll, "core_unicorn_regWrite");
 
-    unsigned int a = testFun(&engine, config);
+    unsigned int a = coreInit(&engine, config);
 
     UINT b = memListAdd(engine, memNode);
+
+    UINT eax = 0x00110011;
+
+    regRead(engine, 0x1, &eax);
+
+    regWrite(engine, 0x1, 0x00FF1100);
+
+    regRead(engine, 0x1, &eax);
 
     printf("%d", a);
 

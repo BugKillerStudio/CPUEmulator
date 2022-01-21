@@ -13,7 +13,7 @@
 
 typedef enum _CORE_UNICORN_ARCH
 {
-    CORE_UNICORN_ARCH_X86,
+    CORE_UNICORN_ARCH_X86 = 4,
 
 }CORE_UNICORN_ARCH;
 
@@ -68,7 +68,7 @@ typedef struct _REG_LIST_X86_32
     UINT eip;
     UINT eflags;
 
-}REG_LIST_X86_32;
+}REG_LIST_X86_32, *PREG_LIST_X86_32;
 
 
 
@@ -101,10 +101,5 @@ typedef struct _CORE_UNICORN_CONFIG
     CORE_UNICORN_MODE mode;
 
 }CORE_UNICORN_CONFIG;
-
-
-
-UINT core_unicorn_init(PCORE_UNICORN_ENGINE* pEngine, CORE_UNICORN_CONFIG config);
-UINT core_unicorn_memWrite(PCORE_UNICORN_ENGINE pEngine);
 
 #endif // !CORE_UNICORN_CORE_H

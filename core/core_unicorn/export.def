@@ -9,3 +9,5 @@ EXPORTS
 core_unicorn_init       @1
 core_unicorn_memAdd     @2
 core_unicorn_memRemove  @3
+core_unicorn_regRead    @4
+core_unicorn_regWrite   @5

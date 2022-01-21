@@ -34,14 +34,22 @@ UINT core_unicorn_init(PCORE_UNICORN_ENGINE* pEngine, CORE_UNICORN_CONFIG config
     return state;
 }
 
-UINT core_unicorn_regRead(PCORE_UNICORN_ENGINE pEngine)
+UINT core_unicorn_regRead(PCORE_UNICORN_ENGINE pEngine, UINT regType, PUINT pRegValue)
 {
-    return CORE_UNICORN_ERR_OK;
+    UINT state = CORE_UNICORN_ERR_OK;
+
+    state = reg_read(pEngine, regType, pRegValue);
+
+    return state;
 }
 
-UINT core_unicorn_regWrite(PCORE_UNICORN_ENGINE pEngine)
+UINT core_unicorn_regWrite(PCORE_UNICORN_ENGINE pEngine, UINT regType, UINT regValue)
 {
-    return CORE_UNICORN_ERR_OK;
+    UINT state = CORE_UNICORN_ERR_OK;
+
+    state = reg_write(pEngine, regType, &regValue);
+
+    return state;
 }
 
 UINT core_unicorn_memAdd(PCORE_UNICORN_ENGINE pEngine, MEM_NODE_CONFIG memConfig)
